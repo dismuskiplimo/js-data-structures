@@ -8,8 +8,7 @@ export default class List{
 
     // push to the front of the list
     push_front(val){
-        let newNode = new Node();
-        newNode.val = val;
+        let newNode = new Node(val);
         
         // if the list has no head, make the new value head
         if(this.head == null){
@@ -27,8 +26,7 @@ export default class List{
     }
 
     push_back(val){
-        let newNode = new Node();
-        newNode.val = val;
+        let newNode = new Node(val);
         
         // if list has no head, make the new value head
         if(this.head == null){
@@ -82,6 +80,49 @@ export default class List{
     // get the first element in list
     peek(){
         return this.head.val;
+    }
+
+    // function to insert node at a certain index
+    insert_at(val, index){
+        // only add the new node if the inde provided is valid
+        if(index >= 0 && index <= this.length){
+            // if the index is 0, append it to the front of the list
+            if(index == 0){
+                this.push_front(val);
+            }
+
+            // if the index is equal to the length, append it to the back of the list
+            else if(index == this.length){
+                this.push_back(val);
+            }
+
+            // else, insert the node between the list
+            else{
+                let newNode = new Node(val);
+                
+                let count = 1;
+                let current = this.head;
+                let previous;
+
+                while(current.next){
+                    previous = current;
+                    current = current.next;
+
+                    if(count == index){
+                        break;
+                    }
+
+                    count += 1;
+                }            
+
+                newNode.next = current;
+                previous.next = newNode;
+
+                this.length += 1;
+            }
+        }else{
+            throw "Error! Index out of bounds"
+        }
     }
 
     // return the menbers as array

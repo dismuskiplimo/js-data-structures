@@ -12,8 +12,9 @@ import List from './modules/list.js';
     list.push_front("C");
     list.push_front("D");
     list.push_front("E");
-    list.push_back("Back");
-    list.push_front("E");
+    list.insert_at("First", 0);
+    list.insert_at("Last", list.length);
+    list.insert_at("Second Last", list.length - 1);
 
     console.log(list.toArray());
 })();
