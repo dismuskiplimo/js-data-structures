@@ -84,7 +84,7 @@ export default class List{
 
     // function to insert node at a certain index
     insert_at(val, index){
-        // only add the new node if the inde provided is valid
+        // only add the new node if the index provided is valid
         if(index >= 0 && index <= this.length){
             // if the index is 0, append it to the front of the list
             if(index == 0){
@@ -120,6 +120,55 @@ export default class List{
 
                 this.length += 1;
             }
+        }else{
+            throw "Error! Index out of bounds"
+        }
+    }
+
+    // function to remove node at a certain index
+    remove_at(index){
+        // only remove the new node if the index provided is valid
+        if(index >= 0 && index < this.length){
+            // if the index is 0, append it to the front of the list
+            if(index == 0){
+                this.head = this.head.next;
+            }
+
+            // if the index is equal to the last index, delete the last node
+            else if(index == this.length - 1){
+                let current = this.head;
+                let count = 1;
+
+                while(this.length - 1 > count){
+                    current = current.next;
+                    count += 1;
+                }
+
+                current.next = null;
+            }
+
+            // else, delete the node between the list
+            else{
+                
+                let count = 1;
+                let current = this.head;
+                let previous;
+
+                while(count <= index ){
+                    previous = current;
+                    current = current.next;
+
+                    if(count == index){
+                        break;
+                    }
+
+                    count += 1;
+                }   
+
+                previous.next = current.next;
+            }
+
+            this.length -= 1;
         }else{
             throw "Error! Index out of bounds"
         }

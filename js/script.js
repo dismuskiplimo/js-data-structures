@@ -15,6 +15,14 @@ import List from './modules/list.js';
     list.insert_at("First", 0);
     list.insert_at("Last", list.length);
     list.insert_at("Second Last", list.length - 1);
+    list.remove_at(7);
+    list.remove_at(1);
+    list.remove_at(1);
+    list.remove_at(1);
+    list.remove_at(1);
+    list.remove_at(1);
+    list.remove_at(1);
 
     console.log(list.toArray());
+    console.log(list.length);
 })();
