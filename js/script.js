@@ -1,28 +1,44 @@
 import List from './modules/list.js';
+import Stack from './modules/stack.js';
 
 (function(){
     // list test
     
-    const list = new List();
+    const myList = new List();
 
     console.log("List Test");
 
-    list.push_front("A");
-    list.push_front("B");
-    list.push_front("C");
-    list.push_front("D");
-    list.push_front("E");
-    list.insert_at("First", 0);
-    list.insert_at("Last", list.length);
-    list.insert_at("Second Last", list.length - 1);
-    list.remove_at(7);
-    list.remove_at(1);
-    list.remove_at(1);
-    list.remove_at(1);
-    list.remove_at(1);
-    list.remove_at(1);
-    list.remove_at(1);
+    myList.pushFront("A");
+    myList.pushFront("B");
+    myList.pushFront("C");
+    myList.pushFront("D");
+    myList.pushFront("E");
+    myList.insert("First", 0);
 
-    console.log(list.toArray());
-    console.log(list.length);
+    myList.insert("Last", myList.size());
+    myList.insert("Second Last", myList.size() - 1);
+    myList.remove(7);
+    myList.remove(1);
+    myList.remove(1);
+    myList.remove(1);
+    myList.remove(1);
+    myList.remove(1);
+    myList.remove(1);
+
+    console.log(myList.toArray());
+    console.log(myList.size());
+
+    // stack test
+    console.log("Stack");
+    const stack = new Stack();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.push(4);
+    stack.push(5);
+
+    stack.pop();
+    console.log(stack.peek());
+
+    console.log(stack.toArray());
 })();

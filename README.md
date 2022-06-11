@@ -3,6 +3,7 @@
 This repo contains data structures implemented using vanilla javascript
 
 ## Data structures included
-`List`
+`List` <br>
+`Stack`
 
 More to be added soon

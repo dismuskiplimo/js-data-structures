@@ -7,7 +7,7 @@ export default class List{
     }
 
     // push to the front of the list
-    push_front(val){
+    pushFront(val){
         let newNode = new Node(val);
         
         // if the list has no head, make the new value head
@@ -25,7 +25,7 @@ export default class List{
         this.length += 1;
     }
 
-    push_back(val){
+    pushBack(val){
         let newNode = new Node(val);
         
         // if list has no head, make the new value head
@@ -51,12 +51,12 @@ export default class List{
 
     // add a value to the list, alias for push back
     enque(val){
-        this.push_back(val);
+        this.pushBack(val);
     }
 
     // add a value to the end of the list, alias for push back
     add(val){
-        this.push_back(val);
+        this.pushBack(val);
     }
 
     // remove the first element in the list, returns the item removed
@@ -71,6 +71,7 @@ export default class List{
             }
 
             this.length -= 1;
+
             return headNode.val;
         }else{
             throw "Error! Cannot deque empty list";
@@ -83,17 +84,17 @@ export default class List{
     }
 
     // function to insert node at a certain index
-    insert_at(val, index){
+    insert(val, index){
         // only add the new node if the index provided is valid
         if(index >= 0 && index <= this.length){
             // if the index is 0, append it to the front of the list
             if(index == 0){
-                this.push_front(val);
+                this.pushFront(val);
             }
 
             // if the index is equal to the length, append it to the back of the list
             else if(index == this.length){
-                this.push_back(val);
+                this.pushBack(val);
             }
 
             // else, insert the node between the list
@@ -126,7 +127,7 @@ export default class List{
     }
 
     // function to remove node at a certain index
-    remove_at(index){
+    remove(index){
         // only remove the new node if the index provided is valid
         if(index >= 0 && index < this.length){
             // if the index is 0, append it to the front of the list
@@ -172,6 +173,11 @@ export default class List{
         }else{
             throw "Error! Index out of bounds"
         }
+    }
+
+    // return the size of the list
+    size(){
+        return this.length;
     }
 
     // return the menbers as array
